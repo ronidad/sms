@@ -1,0 +1,30 @@
+{% extends 'sms/base.html'%}
+
+{% block content%}
+
+{% if messages %}
+  {% for message in messages %}
+
+    <div class="">
+
+      <strong>{{message|safe}}</strong>
+
+
+    </div>
+
+  {% endfor %}
+
+{%else%}
+{{order}}
+<form  method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label>Upload file</label>
+  <input type="file" name="file">
+  <p>Only accepts CSV file</p>
+  <button type="submit">Upload</button>
+
+</form>
+
+{% endif %}
+
+{% endblock content %}

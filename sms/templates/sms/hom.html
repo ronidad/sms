@@ -1,0 +1,18 @@
+{% extends 'sms/base.html' %}
+
+
+{% block content%}
+
+sms here
+<h3>Insert New Categories</h3>
+<form action="/" method="post" id="ingr-cat-form">{% csrf_token %}
+    <p><label for="id_0-name">Name:</label> <input type="text" maxlength="30" name="name" id="id_0-name"></p>
+    <p><label for="id_1-name">Name:</label> <input type="text" maxlength="30" name="name" id="id_1-name"></p>
+    <p><label for="id_2-name">Name:</label> <input type="text" maxlength="30" name="name" id="id_2-name"></p>
+    <input type="submit" name="ingrCatForm" value="Save" />
+</form> 
+
+
+
+
+{% endblock content %}

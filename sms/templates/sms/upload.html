@@ -1,0 +1,51 @@
+{% extends 'sms/base.html'%}
+{% load crispy_forms_tags %}
+{% block content%}
+
+<div class="col-sm-10">
+  <p>Send Personalized message by uploading a csv file </p>
+  <div class="col-md-12">
+    <form class="form-group" action="" method="POST">
+    {% csrf_token %}
+     <br/>
+    <br/>
+    Message: <br/>
+    <textarea name="text_message" id="phone" class="form-control" cols="14" rows="6" placeholder="Type your message here"></textarea>
+
+  <br/>
+
+    <small class="text-muted">sms will go out with sender ID: {{user.profile.sender_Id}}</small>
+    <br>
+    <input class="btn btn-secondary" type="submit" value="Send Now"/>
+    </form>
+
+
+  </div>
+
+</div>
+
+
+
+{% for n in list2%}
+  {{n.phone_number}}
+
+{% endfor %}
+
+
+
+
+
+
+
+<form class="form-group" enctype="multipart/form-data" method="post">
+
+  {% csrf_token %}
+{{form|crispy }}
+  <button class="btn btn-primary" type="submit" name="">Upload file</button>
+
+</form>
+
+
+
+
+{% endblock content %}

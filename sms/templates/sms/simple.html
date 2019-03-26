@@ -1,0 +1,31 @@
+{% extends 'sms/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content%}
+
+
+<div class="content-section">
+
+Send simple sms
+
+<form  method="post">
+    <div class="form-group">
+{% csrf_token %}
+{{ form|crispy }}
+
+<small class="text-muted">sms will go out with sender ID: {{user.profile.sender_Id}}</small>
+<br>
+<input class="btn btn-outline-info"  type="submit"  value="Send now"  />
+
+
+  </div>
+
+</form>
+
+</div>
+
+
+
+
+{% endblock content %}
